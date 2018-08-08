@@ -1,0 +1,17 @@
+# source git-completion file if it exists
+if [ -f ~/.git-completion.bash ]
+  then . ~/.git-completion.bash
+fi
+# source git-prompt file if it exists
+if [ -f ~/.git-prompt-config.sh ]
+  then . ~/.git-prompt-config.sh
+fi
+# source git-prompt file if it exists
+if [ -f ~/.git-prompt.sh ]; then
+  . ~/.git-prompt.sh
+  if [ $(id -u) -eq 0 ]; then
+    PROMPT_COMMAND='__git_ps1 "\[\e[1;31m\][\u@\h:\w" "]\$ \[\e[m\]"'
+  else
+    PROMPT_COMMAND='__git_ps1 "\[\e[1;97m\][\u@\h:\w" "]\$ \[\e[m\]"'
+  fi
+fi
